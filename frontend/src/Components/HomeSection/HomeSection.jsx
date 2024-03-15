@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Avatar } from "@mui/material";
+import { Avatar, Button } from "@mui/material";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import ImageIcon from "@mui/icons-material/Image";
@@ -46,7 +46,7 @@ const HomeSection = () => {
             src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png"
           />
           <div className="w-full">
-            <form>
+            <form onSubmit={formik.handleSubmit}>
               <div>
                 <input
                   type="text"
@@ -76,8 +76,21 @@ const HomeSection = () => {
                   <FmdGoodIcon className="text-[#1DA1F2]" />
                   <TagFacesIcon className="text-[#1DA1F2]" />
                 </div>
-
-                
+                <div>
+                  <Button
+                    sx={{
+                      width: "100%",
+                      borderRadius: "20px",
+                      paddingY: "8px",
+                      paddingX: "20px",
+                      bgcolor: "#1DA1F2",
+                    }}
+                    variant="contained"
+                    type="submit"
+                  >
+                    Tweet
+                  </Button>
+                </div>
               </div>
             </form>
           </div>
