@@ -76,10 +76,7 @@ const HomeSection = () => {
                   <FmdGoodIcon className="text-[#1DA1F2]" />
                   <TagFacesIcon className="text-[#1DA1F2]" />
                 </div>
-                <div>
 
-                </div>
-                
                 
               </div>
             </form>
