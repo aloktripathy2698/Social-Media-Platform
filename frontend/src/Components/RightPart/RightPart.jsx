@@ -12,14 +12,14 @@ const RightPart = () => {
   return (
     <div className="py-5 sticky top">
       <div className="relative flex items-center">
-        <div className="aboslute top-0 left-0 pl-3 pt-3">
-          <SearchIcon className="text-gray-500" />
-        </div>
         <input
           type="text"
           className="py-3 rounded-full text-gray-500 w-full pl-12"
         />
-        
+        <div className="absolute top-0 left-0 pl-3 pt-3">
+          <SearchIcon className="text-gray-500" />
+        </div>
+
         <Brightness4Icon
           className="ml-3 cursor-pointer"
           onClick={handleChangeTheme}
