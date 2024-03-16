@@ -89,7 +89,7 @@ const TweetCard = () => {
               </Menu>
             </div>
           </div>
-          <div className="cursor pointer">
+          <div onClick={()=>navigate(`/tweet/${3}`)} className="cursor pointer">
             <p className="mb-2 p-0">Hanging out in chicago!</p>
             <img
               className="w-[28rem] border border-gray-400 p-5 rounded-md"

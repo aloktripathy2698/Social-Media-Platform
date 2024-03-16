@@ -4,6 +4,9 @@ import Navigation from "../Navigation/Navigation";
 import HomeSection from "../HomeSection/HomeSection";
 import TweetCard from "../HomeSection/TweetCard";
 import RightPart from "../RightPart/RightPart";
+import Profile from "../Profile/Profile";
+import { Route, Routes } from 'react-router-dom';
+import TweetDetails from "../TweetDetails/TweetDetails";
 
 const HomePage = () => {
   return (
@@ -17,10 +20,13 @@ const HomePage = () => {
         lg={6}
         className="px-5 lg:px-9 hidden lg:block w-full relative"
       >
-        <HomeSection />
-        {[1, 1, 1, 1, 1].map((item) => (
-          <TweetCard />
-        ))}
+        <Routes>
+          <Route path='/' element={<HomeSection/>}></Route>
+          <Route path='/home' element={<HomeSection/>}></Route>
+          <Route path='/profile/:id' element={<Profile/>}></Route>
+          <Route path='/tweet/:id' element={<TweetDetails/>}></Route>
+        </Routes>
+        
       </Grid>
       <Grid item xs={0} lg={3} className="hidden lg:block w-full relative">
         <RightPart />
