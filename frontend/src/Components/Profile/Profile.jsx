@@ -7,17 +7,18 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import TweetCard from "../HomeSection/TweetCard";
+import ProfileModal from "./ProfileModal";
 
 const Profile = () => {
   const [tabValue, setTabValue] = React.useState('1');
+  const[openProfileModal, setOpenProfileModal] = React.useState(false)
+  const handleOpenProfileModal = () => setOpenProfileModal(true)
+  const handleClose = () => setOpenProfileModal(false)
 
   
   const navigate = useNavigate();
   const handleBack = () => navigate(-1);
 
-  const handleOpenProfileModel = () => {
-    console.log("open profile model");
-  };
 
   const handleFollowUser = () => {
     console.log("follow user");
@@ -63,9 +64,9 @@ const Profile = () => {
             src="https://cdn.pixabay.com/photo/2017/06/26/02/47/man-2442565_640.jpg"
             sx={{ width: "10rem", height: "10rem", border: "4px solid white" }}
           />
-          {false ? (
+          {true ? (
             <Button
-              onClick={handleOpenProfileModel}
+              onClick={handleOpenProfileModal}
               variant="contained"
               sx={{ borderRadius: "20px", bgcolor: "#1DA1F2" }}
             >
@@ -143,6 +144,9 @@ const Profile = () => {
             <TabPanel value="4">Likes</TabPanel>
           </TabContext>
         </Box>
+      </section>
+      <section>
+        <ProfileModal handleClose={handleClose} open={openProfileModal}/>
       </section>
     </div>
   );
