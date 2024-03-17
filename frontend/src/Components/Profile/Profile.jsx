@@ -10,15 +10,13 @@ import TweetCard from "../HomeSection/TweetCard";
 import ProfileModal from "./ProfileModal";
 
 const Profile = () => {
-  const [tabValue, setTabValue] = React.useState('1');
-  const[openProfileModal, setOpenProfileModal] = React.useState(false)
-  const handleOpenProfileModal = () => setOpenProfileModal(true)
-  const handleClose = () => setOpenProfileModal(false)
+  const [tabValue, setTabValue] = React.useState("1");
+  const [openProfileModal, setOpenProfileModal] = React.useState(false);
+  const handleOpenProfileModal = () => setOpenProfileModal(true);
+  const handleClose = () => setOpenProfileModal(false);
 
-  
   const navigate = useNavigate();
   const handleBack = () => navigate(-1);
-
 
   const handleFollowUser = () => {
     console.log("follow user");
@@ -27,19 +25,20 @@ const Profile = () => {
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
 
-    if(newValue===4){
-      console.log("likes tweet")
+    if (newValue === 4) {
+      console.log("likes tweet");
     }
 
-    if(newValue===1){
-      console.log("user tweets")
+    if (newValue === 1) {
+      console.log("user tweets");
     }
-
   };
 
   return (
     <div>
-      <section className={`bg-white z-50 flex items-center sticky top-0 bg-opacity-95`}>
+      <section
+        className={`bg-white z-50 flex items-center sticky top-0 bg-opacity-95`}
+      >
         <KeyboardBackspaceIcon
           className="cursor-pointer"
           onClick={handleBack}
@@ -137,7 +136,9 @@ const Profile = () => {
               </TabList>
             </Box>
             <TabPanel value="1">
-              {[1,1,1,1].map((item)=><TweetCard/>)}
+              {[1, 1, 1, 1].map((item) => (
+                <TweetCard />
+              ))}
             </TabPanel>
             <TabPanel value="2">User's Replies</TabPanel>
             <TabPanel value="3">Media</TabPanel>
@@ -146,7 +147,7 @@ const Profile = () => {
         </Box>
       </section>
       <section>
-        <ProfileModal handleClose={handleClose} open={openProfileModal}/>
+        <ProfileModal handleClose={handleClose} open={openProfileModal} />
       </section>
     </div>
   );

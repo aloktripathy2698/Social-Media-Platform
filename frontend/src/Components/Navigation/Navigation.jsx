@@ -89,7 +89,7 @@ const Navigation = () => {
         <div className="flex items-center space-x-3">
           <Avatar
             alt="username"
-            src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png"
+            src="https://cdn.pixabay.com/photo/2017/06/26/02/47/man-2442565_640.jpg"
           />
           <div>
             <span> Alok </span>

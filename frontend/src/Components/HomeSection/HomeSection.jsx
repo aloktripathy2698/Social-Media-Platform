@@ -44,7 +44,7 @@ const HomeSection = () => {
         <div className="flex space-x-5">
           <Avatar
             alt="username"
-            src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png"
+            src="https://cdn.pixabay.com/photo/2017/06/26/02/47/man-2442565_640.jpg"
           />
           <div className="w-full">
             <form onSubmit={formik.handleSubmit}>
@@ -98,7 +98,9 @@ const HomeSection = () => {
         </div>
       </section>
       <section>
-        {[1,1,1,1,1].map((item)=><TweetCard/>)}
+        {[1, 1, 1, 1, 1].map((item) => (
+          <TweetCard />
+        ))}
       </section>
     </div>
   );
