@@ -7,17 +7,16 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import TweetCard from "../HomeSection/TweetCard";
+import ProfileModal from "./ProfileModal";
 
 const Profile = () => {
-  const [tabValue, setTabValue] = React.useState('1');
+  const [tabValue, setTabValue] = React.useState("1");
+  const [openProfileModal, setOpenProfileModal] = React.useState(false);
+  const handleOpenProfileModal = () => setOpenProfileModal(true);
+  const handleClose = () => setOpenProfileModal(false);
 
-  
   const navigate = useNavigate();
   const handleBack = () => navigate(-1);
-
-  const handleOpenProfileModel = () => {
-    console.log("open profile model");
-  };
 
   const handleFollowUser = () => {
     console.log("follow user");
@@ -26,19 +25,20 @@ const Profile = () => {
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
 
-    if(newValue===4){
-      console.log("likes tweet")
+    if (newValue === 4) {
+      console.log("likes tweet");
     }
 
-    if(newValue===1){
-      console.log("user tweets")
+    if (newValue === 1) {
+      console.log("user tweets");
     }
-
   };
 
   return (
     <div>
-      <section className={`bg-white z-50 flex items-center sticky top-0 bg-opacity-95`}>
+      <section
+        className={`bg-white z-50 flex items-center sticky top-0 bg-opacity-95`}
+      >
         <KeyboardBackspaceIcon
           className="cursor-pointer"
           onClick={handleBack}
@@ -63,9 +63,9 @@ const Profile = () => {
             src="https://cdn.pixabay.com/photo/2017/06/26/02/47/man-2442565_640.jpg"
             sx={{ width: "10rem", height: "10rem", border: "4px solid white" }}
           />
-          {false ? (
+          {true ? (
             <Button
-              onClick={handleOpenProfileModel}
+              onClick={handleOpenProfileModal}
               variant="contained"
               sx={{ borderRadius: "20px", bgcolor: "#1DA1F2" }}
             >
@@ -136,13 +136,18 @@ const Profile = () => {
               </TabList>
             </Box>
             <TabPanel value="1">
-              {[1,1,1,1].map((item)=><TweetCard/>)}
+              {[1, 1, 1, 1].map((item) => (
+                <TweetCard />
+              ))}
             </TabPanel>
             <TabPanel value="2">User's Replies</TabPanel>
             <TabPanel value="3">Media</TabPanel>
             <TabPanel value="4">Likes</TabPanel>
           </TabContext>
         </Box>
+      </section>
+      <section>
+        <ProfileModal handleClose={handleClose} open={openProfileModal} />
       </section>
     </div>
   );

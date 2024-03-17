@@ -4,22 +4,27 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import { Button } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { More } from "@mui/icons-material";
+import SubscriptionModal from "../SubscriptionModal/SubscriptionModal";
 
 const RightPart = () => {
+  const [openSubscriptionModel, setOpenSubscriptionModel] =
+    React.useState(false);
+  const handleOpenSubscriptionModel = () => setOpenSubscriptionModel(true);
+  const handleCloseSubscriptionModel = () => setOpenSubscriptionModel(false);
   const handleChangeTheme = () => {
     console.log("handle change theme.");
   };
   return (
     <div className="py-5 sticky top">
       <div className="relative flex items-center">
-        <div className="aboslute top-0 left-0 pl-3 pt-3">
-          <SearchIcon className="text-gray-500" />
-        </div>
         <input
           type="text"
           className="py-3 rounded-full text-gray-500 w-full pl-12"
         />
-        
+        <div className="absolute top-0 left-0 pl-3 pt-3">
+          <SearchIcon className="text-gray-500" />
+        </div>
+
         <Brightness4Icon
           className="ml-3 cursor-pointer"
           onClick={handleChangeTheme}
@@ -29,6 +34,7 @@ const RightPart = () => {
         <h1 className="text-xl font-bold">Get Verified</h1>
         <h1 className="font-bold my-2">Subscribe to unlock new features</h1>
         <Button
+          onClick={handleOpenSubscriptionModel}
           variant="contained"
           sx={{
             padding: "10px",
@@ -56,6 +62,12 @@ const RightPart = () => {
             <MoreHorizIcon />
           </div>
         ))}
+      </section>
+      <section>
+        <SubscriptionModal
+          open={openSubscriptionModel}
+          handleClose={handleCloseSubscriptionModel}
+        />
       </section>
     </div>
   );
