@@ -54,7 +54,7 @@ public class AuthController {
         createdUser.setBirthDate(birthDate);
         createdUser.setVerification(new Varification());
 
-        User savedUser = userRepository.save(user);
+        User savedUser = userRepository.save(createdUser);
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(email,password);
         SecurityContextHolder.getContext().setAuthentication(authentication);
